@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "zysect": {
+      "command": "zysect",
+      "args": [],
+      "description": "AI-native security scanner — catches P0 vulnerabilities in generated code via AST analysis"
+    }
+  }
+}

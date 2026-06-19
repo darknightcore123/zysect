@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.js.map
+.env
+.env.local
+.env*.local
+*.log
+zysect_test_repos/
+*.tgz

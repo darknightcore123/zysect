@@ -1,0 +1,35 @@
+# Zysect Security Rules
+# These rules apply in every project that ships this file.
+
+## After generating code
+
+After writing or significantly modifying any of the following file types, call the
+`scan_file` MCP tool from the `zysect` server:
+
+- Any file that touches authentication (login, register, session, JWT, OAuth)
+- Any file that queries a database (Supabase, Prisma, Drizzle, pg, mysql2, SQLite)
+- Any file that handles file uploads or multipart form data
+- Any API route handler or Next.js server action
+- Any file that imports from an external service SDK (Stripe, Twilio, SendGrid, etc.)
+- Any file that references environment variables (process.env.*, import.meta.env.*)
+
+## Tool to call
+
+```
+zysect.scan_file({
+  file_path: "<relative path of the file you just wrote>",
+  file_content: "<complete source code of the file>"
+})
+```
+
+## If findings are returned
+
+- Severity P0: Fix immediately before returning the code to the user.
+- Explain the vulnerability in plain language, show the fix inline, then confirm
+  the scan passes clean before presenting the final output.
+- Never present code with an open P0 finding as complete.
+
+## Scope
+
+Only call `scan_file` on files you generate or substantially edit in this session.
+Do not retroactively scan the entire codebase on every request.

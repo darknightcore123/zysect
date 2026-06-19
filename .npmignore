@@ -1,0 +1,11 @@
+src/
+scripts/
+tests/
+zysect_test_repos/
+tsconfig.json
+.cursorrules
+.mcp.json
+.gitignore
+smoke_test.js
+*.log
+.env*
